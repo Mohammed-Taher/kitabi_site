@@ -1,0 +1,123 @@
+@font-face {
+    font-family: "Naskh";
+    src: url("../fonts/NotoNaskhArabic-Regular.ttf") format('truetype');
+}
+
+@font-face{
+  font-family: "Kufi";
+  src: url("../fonts/DroidKufi-Regular.ttf") format('truetype');
+}
+
+@font-face{
+  font-family: "BukraBold";
+  src: url("../fonts/29ltbukrabold.ttf") format('truetype');
+}
+
+body {
+  font-family: "Naskh";
+  font-size: 180%;
+
+}
+
+img.bg {
+  min-height: 100%;
+  min-width: 1024px;
+
+  width: 100%;
+  height: auto;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -10;
+}
+
+@media screen and (max-width: 1024px){
+  img.bg {
+    left: 50%;
+    margin-left: -512px;
+  }
+
+}
+
+
+h1, h2, h3, h4, h5 {
+  font-family: "Kufi";
+}
+
+body ul {
+  list-style: none;
+  margin-top: 20px;
+}
+
+body ul>li {
+  display: block;
+  float: right;
+  padding: 15px;
+  box-shadow: 0px 0px 1px #ccc;
+  margin: 3px;
+  background-color: #fff;
+}
+
+body ul>li img {
+  display: block;
+  width: 120px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+col-lg-8 {
+
+  background-color: #fff;
+}
+
+.book-info {
+  font-size:90%;
+  line-height: 90%;
+  color: #454545;
+}
+
+.login_form{
+  display: block;
+  margin: 0 auto;
+  width: 400px;
+  border:solid 1px #13aba2;
+  border-radius: 5px;
+  padding: 15px;
+  line-height: 25px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.login_form h3 {
+  font-family: "Kufi";
+  text-align: center;
+}
+
+.submit_btn{
+  width: 220px;
+  display: block;
+  margin: 0 auto;
+  background-color: #1c8290;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-family: "Kufi";
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.submit_btn:hover {
+  background-color: rgb(8, 65, 53);
+}
+
+.login_form input[type='text'], .login_form input[type='password'] {
+  width: 100%;
+  display: block;
+  border: solid 1px #aaa;
+  border-radius: 3px;
+  padding: 5px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  font-family: "Kufi", Arial;
+  font-size: 13px;
+}

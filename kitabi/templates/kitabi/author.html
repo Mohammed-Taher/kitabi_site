@@ -1,0 +1,46 @@
+{% load staticfiles %}
+<html dir='rtl'>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>كتابي</title>
+  <link href="{%static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{%static 'css/bootstrap-rtl.min.css' %}" rel="stylesheet">
+  <link href="{%static 'css/styles.css' %}" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar navbar-default navbar-inverse navbar-static-top" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
+            <span class="sr-only">قائمة منسدلة</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+            <a href="/" class="navbar-brand">كتابي</a>
+        </div>
+    </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+
+<div class="col-sm-3 col-md-7 col-lg-3">
+<img src="{%static 'authors_images/'%}{{s_author.image}}"/>
+</div>
+<div class="col-sm-9 col-md-5 col-lg-9">
+<h2>{{s_author.f_name}} {{s_author.l_name}}</h2>
+<hr/>
+<h3>نبذة عن الكاتب</h3>
+{% autoescape off %}
+{{s_author.about}}
+{% endautoescape%}
+<hr/>
+<h4></h4>
+<p>{{s_book.summery}}</p>
+</div>
+</div>
+</div>
+<script src="{%static 'js/bootstrap.min.js'%}"></script>
+<script src="{%static 'js/jquery-2.1.4.min.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+{%extends "blog/base.html" %}
+{%block content%}
+<body>
+  <article>
+  {%if s_post%}
+  <h1>{{s_post.title}}</h1>
+  <div class="infobox">
+    <img class="right" src="{{s_post.author.image.url}}"></p>
+    <p><a href="#">{{s_post.author}}</a> <span>|</span> {{s_post.pub_date}} <span>|</span> <a href="#">{{s_post.category}}</a> <span>|</span> {{s_post.comments_number}} تعليق</p>
+  </div>
+  <img class="post_image" src="{{s_post.image.url}}"/>
+  {% autoescape off%}
+  {{s_post.text}}
+  {%endautoescape%}
+</article>
+<hr />
+<strong>الوسوم:</strong>&nbsp;<span class="badge">التمويل</span>&nbsp;<span class="badge">المرشدون</span>&nbsp;<span class="badge">شركة ناشئة</span>
+<hr />
+<div class="author">
+  <img src="{{s_post.author.image.url}}" class="img-circle">
+  <h3>نبذة عن الكاتب</h3>
+  <p>{{s_post.author.about}}</p>
+</div><hr />
+<h2>التعليقات ({{s_post.comments_number}})</h2>
+    {%for comment in s_post.comment_set.all%}
+    <div class="comment_container">
+      <div class="comment_name">{{comment.name}}</div>
+      <div class="comment">
+      <h2>{{comment.title}}</h2>
+      <p>{{comment.text}}</p>
+    </div>
+</div>
+    {%endfor%}
+
+  {%endif%}
+{%endblock%}
+
+
+{%block categories%}
+  {%if categories%}
+    <ul>
+    {%for cat in categories%}
+      <li><a href="#">{{cat.cat_name}}</a></li>
+    {%endfor%}
+      </ul>
+  {%endif%}
+{%endblock%}

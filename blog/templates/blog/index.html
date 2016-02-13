@@ -1,0 +1,34 @@
+{%extends "blog/base.html" %}
+
+
+{%block content%}
+
+  {%if post_list%}
+  {%for post in post_list%}
+<article>
+  <h1><a href="post/{{post.id}}/">{{post.title}}</a></h1>
+  <div class="infobox">
+    <img class="right" src="{{post.author.image.url}}"></p>
+    <p><a href="#">{{post.author}}</a> <span>|</span> {{post.pub_date}} <span>|</span> <a href="#">{{post.category}}</a> <span>|</span> {{post.comments_number}} تعليق</p>
+  </div>
+  {% autoescape off%}
+  {{post.post_excerpt}}
+  {%endautoescape%}
+  <a class="btn btn-success btn-xs" href="post/{{post.id}}/">تابع القراءة...</a>
+</article>
+<hr/>
+  {%endfor%}
+  {%endif%}
+
+{%endblock%}
+
+
+{%block categories%}
+  {%if categories%}
+    <ul>
+    {%for cat in categories%}
+      <li><a href="#">{{cat.cat_name}}</a></li>
+    {%endfor%}
+  </ul>
+  {%endif%}
+{%endblock%}

@@ -1,0 +1,48 @@
+{% load staticfiles %}
+<html dir='rtl'>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>كتابي - تسجيل الدخول</title>
+  <link href="{%static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{%static 'css/bootstrap-rtl.min.css' %}" rel="stylesheet">
+  <link href="{%static 'css/styles.css' %}" rel="stylesheet">
+</head>
+<img class='bg' src="{%static 'images/login_back.jpg'%}"></img>
+<body class="login_background">
+  <nav class="navbar navbar-default navbar-inverse navbar-static-top" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
+            <span class="sr-only">قائمة منسدلة</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+            <a href="/" class="navbar-brand">كتابي</a>
+        </div>
+    </nav>
+    <div class="container">
+
+{% if form.errors %}
+<div class="alert alert-danger">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  المعلومات التي أدخلتها غير صحيحة، حاول مرة أخرى.
+</div>
+{% endif %}
+<div class="login_form">
+  <h3>تسجيل الدخول</h3>
+<form action="" method="post">
+  {% csrf_token %}
+  <input type="text" placeholder="اسم المستخدم" name='username'><br/>
+  <input type='password' name='password' placeholder="كلمة المرور"><br/>
+  <button class ='submit_btn' type="submit"><span class="glyphicon glyphicon-log-in"></span> تسجيل الدخول </button>
+  <input type="hidden" name="next" value="{{ next|escape }}" />
+</form>
+</div>
+
+</div>
+<script src="{%static 'js/jquery-2.1.4.min.js' %}"></script>
+<script src="{%static 'js/bootstrap.min.js'%}"></script>
+
+</body>
+</html>

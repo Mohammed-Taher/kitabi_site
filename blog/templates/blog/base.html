@@ -1,0 +1,115 @@
+{% load staticfiles %}
+<!doctype html>
+<html dir='rtl'>
+<head lang="ar">
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="{%static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{%static 'css/bootstrap-rtl.min.css' %}" rel="stylesheet">
+  <link href="{%static 'css/style.css' %}" rel="stylesheet">
+  <title>مدونة كتابي</title>
+</head>
+<body>
+  <header>
+    <a href="/blog/"><img class="header-logo" src="{%static 'images/logo.png' %}"></a>
+      <ul>
+        <li><a href="/blog/">الرئيسية</a></li>
+        <li><a href="#">التصنيفات</a></li>
+        <li><a href="#">الأرشيف</a></li>
+        <li><a href="#">من نحن؟</a></li>
+        <li><a href="#">اتصل بنا</a></li>
+      </ul>
+    </header>
+
+
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-sm-2 col-md-2 col-lg-2">
+        <aside class="cats">
+
+        <h3>التصنيفات</h3>
+          {%block categories%}
+          {%endblock%}
+        </aside>
+        <aside>
+        <h3>الوسوم</h3>
+      </aside>
+</div>
+    <div class="col-sm-8 col-md-8 col-lg-8">
+      {%block content%}
+      {%endblock%}
+    </div>
+
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <aside>
+      <h3>الأرشيف</h3>
+</aside>
+    </div>
+
+    </div>
+    </div>
+<footer>
+  <ul>
+    <li><a href="/blog/">الرئيسية</a></li>
+    <li><a href="#">التصنيفات</a></li>
+    <li><a href="#">الأرشيف</a></li>
+    <li><a href="#">من نحن؟</a></li>
+    <li><a href="#">اتصل بنا</a></li>
+    <li><a href="/">مدونة كتابي</a></li>
+  </ul>
+  <br />
+جميع الحقوق محفوظة 2016 | برمجة وتصميم محمد طاهر الموسوي
+
+</footer>
+<script src="{%static 'js/jquery-2.1.4.min.js' %}"></script>
+<script src="{%static 'js/bootstrap.min.js'%}"></script>
+<script  type="text/javascript">
+var didScroll;
+var lastScrollTop = 0;
+var delta = 5;
+var navbarHeight = $('header').outerHeight();
+
+$(window).scroll(function(event){
+    didScroll = true;
+});
+
+setInterval(function() {
+    if (didScroll) {
+        hasScrolled();
+        didScroll = false;
+    }
+}, 250);
+
+function hasScrolled() {
+    var st = $(this).scrollTop();
+
+    // Make sure they scroll more than delta
+    if(Math.abs(lastScrollTop - st) <= delta)
+        return;
+
+    // If they scrolled down and are past the navbar, add class .nav-up.
+    // This is necessary so you never see what is "behind" the navbar.
+    if (st > lastScrollTop && st > navbarHeight){
+        // Scroll Down
+        $('header').removeClass('nav-down').addClass('nav-up');
+    } else {
+        // Scroll Up
+        if(st + $(window).height() < $(document).height()) {
+            $('header').removeClass('nav-up').addClass('nav-down');
+        }
+    }
+
+
+
+    lastScrollTop = st;
+  console.log(st);
+    if (st == 0) {
+
+    }
+}
+</script>
+</body>
+
+</html>

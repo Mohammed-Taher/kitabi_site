@@ -1,0 +1,35 @@
+{% extends 'kitabi/base.html' %}
+{% load staticfiles %}
+{%block content%}
+  <div class="container-fluid">
+    <div class="row">
+
+<div class="col-sm-3 col-md-7 col-lg-2">
+<img src="{%static 'books_images/'%}{{s_book.cover}}"/><hr/>
+<div class="book-info">
+
+<h4>معلومات الكتاب</h4>
+
+<p>عدد الصفحات: {{s_book.pages}}</p>
+<p>تاريخ النشر: {{s_book.pub_date}}</p>
+<p>الناشر: {{s_book.publisher}}</p>
+<p>ISBN: {{s_book.isbn}}</p>
+</div>
+</div>
+<div class="col-sm-9 col-md-5 col-lg-8">
+<h2>{{s_book.title}}</h2>
+<hr/>
+<h4>تأليف: <a href="/author/{{s_book.author.id}}">{{s_book.author}}</a></h4>
+<hr/>
+<h4>نبذة عن الكتاب</h4>
+{% autoescape off%}
+<p>{{s_book.summery}}</p>
+{% endautoescape%}
+
+</div>
+<div class="col-lg-2">
+  <h4>هل قرأت الكتاب</h4>
+</div>
+</div>
+</div>
+{%endblock%}
